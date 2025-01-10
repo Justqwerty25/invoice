@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factuurbeheersysteem</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Factuurbeheersysteem</h1>
+
+        <!-- Invoice Details -->
+        <div class="invoice-details">
+            <h2>Factuurgegevens</h2>
+            <div class="form-group">
+                <label for="invoiceNumber">Factuurnummer:</label>
+                <input type="text" id="invoiceNumber" readonly>
+            </div>
+            <div class="form-group">
+                <label for="issueDate">Datum van uitgifte:</label>
+                <input type="text" id="issueDate" value="01/01/2025">
+            </div>
+            <div class="form-group">
+                <label for="dueDate">Vervaldatum:</label>
+                <input type="text" id="dueDate" value="15/01/2025">
+            </div>
+        </div>
+
+        <!-- Client Details -->
+        <div class="client-details">
+            <h2>Klantgegevens</h2>
+            <div class="form-group">
+                <label for="clientName">Naam:</label>
+                <input type="text" id="clientName" placeholder="Klantnaam">
+            </div>
+            <div class="form-group">
+                <label for="clientAddress">Adres:</label>
+                <input type="text" id="clientAddress" placeholder="Klantadres">
+            </div>
+            <div class="form-group">
+                <label for="clientEmail">E-mail:</label>
+                <input type="email" id="clientEmail" placeholder="Klant e-mail">
+            </div>
+            <div class="form-group">
+                <label for="clientPhone">Telefoon:</label>
+                <input type="tel" id="clientPhone" placeholder="Klant telefoon">
+            </div>
+            <div class="form-group">
+                <label for="clientTaxID">BTW-nummer (indien van toepassing):</label>
+                <input type="text" id="clientTaxID" placeholder="BTW-nummer">
+            </div>
+        </div>
+
+        <!-- Company Details -->
+        <div class="company-details">
+            <h2>Bedrijfsgegevens</h2>
+            <div class="form-group">
+                <label for="companyName">Bedrijfsnaam:</label>
+                <input type="text" id="companyName" placeholder="Bedrijfsnaam">
+            </div>
+            <div class="form-group">
+                <label for="companyAddress">Adres:</label>
+                <input type="text" id="companyAddress" placeholder="Bedrijfsadres">
+            </div>
+            <div class="form-group">
+                <label for="companyEmail">E-mail:</label>
+                <input type="email" id="companyEmail" placeholder="Bedrijf e-mail">
+            </div>
+            <div class="form-group">
+                <label for="companyPhone">Telefoon:</label>
+                <input type="tel" id="companyPhone" placeholder="Bedrijf telefoon">
+            </div>
+            <div class="form-group">
+                <label for="companyKvK">KvK-nummer:</label>
+                <input type="text" id="companyKvK" placeholder="KvK-nummer">
+            </div>
+            <div class="form-group">
+                <label for="companyVAT">BTW-nummer:</label>
+                <input type="text" id="companyVAT" placeholder="BTW-nummer">
+            </div>
+        </div>
+
+        <!-- Itemized List -->
+        <div class="items-table">
+            <h2>Producten/Diensten</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Beschrijving</th>
+                        <th>Hoeveelheid</th>
+                        <th>Prijs per eenheid</th>
+                        <th>BTW-tarief</th>
+                        <th>Totaal</th>
+                        <th>Actie</th>
+                    </tr>
+                </thead>
+                <tbody id="items">
+                    <!-- Items will be added here dynamically -->
+                </tbody>
+            </table>
+            <button onclick="addItem()">Voeg item toe</button>
+        </div>
+
+        <!-- Totals -->
+        <div class="totals">
+            <h2>Totaalbedrag</h2>
+            <p>Subtotaal: <span id="subtotal">€0.00</span></p>
+            <p>BTW (21%): <span id="vat">€0.00</span></p>
+            <p>Totaal: <span id="total">€0.00</span></p>
+        </div>
+
+        <!-- Export and Email -->
+        <div class="actions">
+            <button onclick="exportPDF()">Exporteer als PDF</button>
+            <button onclick="window.print()">Print Preview</button>
+            <button onclick="sendEmail()">E-mail Factuur</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            &copy; 2025 Factuurbeheersysteem. Alle rechten voorbehouden.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
